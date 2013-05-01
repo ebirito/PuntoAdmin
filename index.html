@@ -6,7 +6,18 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="js/vendor/jquery.validate.js"></script>
 <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<script type="text/javascript" src="http://static.stackmob.com/js/stackmob-js-0.9.1-bundled-min.js"></script>
+
+<script type="text/javascript">
+  // Initilize the backend (Stackmob)
+	StackMob.init({
+    publicKey: "da3d4dd5-a165-466f-9e5a-80ce2e9dedc3",
+    apiVersion: 0
+	});
+</script>
+
 <script type="text/javascript" src="js/placeholder.js"></script>
+<script src="js/index.js"></script>
 </head>
 <body>
 <form id="frmLogin">
@@ -31,7 +42,7 @@ $(document).ready(function() {
 			txtPassword: "Favor ingrese clave"
 		},
 		submitHandler: function(form) {
-            		alert("Hey");
+            		Login();
             		return false;
         }
 	});
