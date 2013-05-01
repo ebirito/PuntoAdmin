@@ -256,7 +256,7 @@ body {
 }
 
 label.error {
-		color: red;
+		color: white;
 		font-size: 16px;
 		font-weight: normal;
 		line-height: 1.4;
