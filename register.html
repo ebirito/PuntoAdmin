@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Punto</title>
+<link rel="stylesheet" type="text/css" href="css/register.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/vendor/jquery.validate.js"></script>
+<script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<script type="text/javascript" src="http://static.stackmob.com/js/stackmob-js-0.9.1-bundled-min.js"></script>
+
+<script src="js/register.js"></script>
+<script type="text/javascript">
+  // Initilize the backend (Stackmob)
+	StackMob.init({
+    publicKey: "da3d4dd5-a165-466f-9e5a-80ce2e9dedc3",
+    apiVersion: 0
+	});
+	
+	// Check if the user has lgged in
+	IsLoggedIn();
+</script>
+
+<script type="text/javascript" src="js/placeholder.js"></script>
+</head>
+<body>
+	<form id="frmRegister">
+		<img src="img/logoBig.png" width="100%" />
+		<div id="divForm">
+			<h1>Registro nueva cuenta</h1>
+			<input type="email" name="txtEmail" id="txtEmail" class="placeholder" placeholder="Email:" />
+			<input type="text" name="txtFirstName" id="txtFirstName" class="placeholder" placeholder="Nombre:" />
+			<input type="text" name="txtLastName" id="txtLastName" class="placeholder" placeholder="Apellido:" />
+			<input type="submit" value="Registrar">
+		</div>
+		<div id="divSuccess" style="display:none" align="center">
+			<h1>Cuenta ha sido creada</h1>
+			<h2>La clave temporal de esta cuenta es:</h2>
+			<h3 id="txtTemporaryPassword"></h3>
+			<input type="button" value="OK" onclick="Clear();" />
+		</div>
+	</form>
+<script>
+$(document).ready(function() {
+	$("#frmRegister").validate({
+		rules: {
+			txtEmail: {
+					required: true,
+				},
+			txtFirstName: {
+				required: true
+			},
+			txtLastName: {
+				required: true
+			}
+		},
+		messages: {
+			txtEmail:  "Favor ingrese e-mail valido",
+			txtFirstName:  "Favor ingrese nombre",
+			txtLastName:  "Favor ingrese apellido"
+		},
+		submitHandler: function(form) {
+            CreateUser();
+        	return false;
+        }
+	});
+});
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ function Login()
 	  success: function(user) {
 	   // If user is administrator then proceed
 	   if(user.isAdministrator){
-	    	alert("Bienvenido administrador!");
+	    	window.location.href = 'register.html?username=' + $("#txtEmail").val();
 	    }
 	    // otherwise warn the user
 	   else{
@@ -19,9 +19,4 @@ function Login()
 		validator.showErrors({"txtPassword": "E-mail o clave no validos"});
 	  }
 	});
-}
-
-function lnkTermsClick()
-{
-	$.mobile.changePage('pages/terms.html');
 }
